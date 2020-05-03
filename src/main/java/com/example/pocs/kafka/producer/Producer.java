@@ -23,7 +23,13 @@ public class Producer {
         //create a producer record
         ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>("first_topic", "Hello World");
 
-        //send Data
+        //send Data - asynchronous
         producer.send(producerRecord);
+
+        //flush data
+        producer.flush();
+
+        //flush and close producer
+        producer.close();
     }
 }
