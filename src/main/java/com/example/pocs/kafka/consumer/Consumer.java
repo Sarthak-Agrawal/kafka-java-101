@@ -16,7 +16,7 @@ public class Consumer {
 
     public static void main(String[] args) {
 
-        Logger logger = LoggerFactory.getLogger(Consumer.class.getName());
+        Logger logger = LoggerFactory.getLogger(Consumer.class);
 
         //Consumer Properties
         Properties properties = new Properties();
@@ -28,7 +28,7 @@ public class Consumer {
         properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
         //Create a consumer
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(properties);
+        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
 
         //Subscribe to a topic(s)
         consumer.subscribe(Collections.singleton("first_topic"));
